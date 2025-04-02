@@ -1,0 +1,14 @@
+{
+    "hostname":"127.0.0.1",
+    "db":"postgres",
+    "username":"postgres",
+    "password":"123456",
+
+
+    "influxUrl":"http://10.16.52.243:18086",
+    "token":"I3nAb4l9-xc3tx1b3VQN1vxkRtNOVkccgvWBgIRXQEvuhwSA5crZFu_5_C9SMgOsbENKER9ic0PtWq0mSxqZrQ==",
+    "org":"influx",
+    "bucket":"influx"
+
+
+}

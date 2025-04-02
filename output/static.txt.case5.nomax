@@ -1,0 +1,25 @@
+static
+Case5
+
+
+
+min_time = from(bucket: "sensordata")
+  |> range(start: 0)  // 查询所有数据（从 1970-01-01 00:00:00 UTC 起）
+  |> filter(fn: (r) => r._measurement == "sensordata")  // 过滤指定的 _measurement
+  |> first()
+  |> rename(columns: {_time: "min_time"})  // 重命名 _time 为 min_time
+  |> keep(columns: ["min_time"])  // 只保留 min_time 字段
+
+max_time = from(bucket: "sensordata")
+  |> range(start: 0)  // 查询所有数据（从 1970-01-01 00:00:00 UTC 起）
+  |> filter(fn: (r) => r._measurement == "sensordata")  // 过滤指定的 _measurement
+  |> last()
+  |> rename(columns: {_time: "max_time"})  // 重命名 _time 为 max_time
+  |> keep(columns: ["max_time"])  // 只保留 max_time 字段
+
+min_time
+  |> yield(name: "min_time")
+max_time
+  |> yield(name: "max_time")
+
+    
